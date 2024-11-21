@@ -52,7 +52,7 @@ const isMobile = computed(() => width.value < 768);
               <NavLink>常見問題</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>博客</NavLink>
+              <NavLink to="/article/1">博客</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/apply"><img class="navbar-btn-img" :src="btnImg" alt=""></NavLink>

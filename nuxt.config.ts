@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  ssr: true,
   srcDir: 'src/',
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -32,6 +33,19 @@ export default defineNuxtConfig({
           additionalData: `@import "@/global.scss";`,
         },
       },
+    },
+  },
+
+  routeRules: {
+    // 文章列表页面，每个分页页面都需要进行预渲染
+    '/article/**': {
+      prerender: true,
+      isr: 3600,
+    },
+    // 文章详情页面，通过文章 ID 渲染具体内容，进行预渲染
+    '/article-info/**': {
+      prerender: true,
+      isr: 3600,
     },
   },
 });
